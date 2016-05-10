@@ -1,0 +1,27 @@
+<div ng-include="'view/menu.html'"></div>
+<div class="container">
+    <div ng-show="produtos.length == 0" class="alert alert-info text-center">
+        Nenhum produto encontrado!
+    </div>
+    <div class="row">
+        <div class="col-sm-4 col-md-4" ng-repeat="produto in produtos | filter: search">
+            <div class="thumbnail" style="border-style: none;">
+                <a href="#/detalhes-do-produto/{{produto.Id}}" ng-click="GetProduto(produto)" title="Ver detalhes do produto">
+                    <img src="{{produto.Img}}" alt="foto-produto" id="imgLoad" style="height:150px;">
+                    <div class="caption text-center">
+                        <h3>{{produto.Nome}}</h3>
+                        <p>{{produto.Descricao | ellipsis: 30}}</p>
+                </a>
+                <p>
+                    <strong>
+                       Por: {{produto.Preco | currency:"R$ "}}
+                    </strong>
+                    <button ng-click="AddProdutoCarrinho(produto)" class="btn btn-success btn-xs" title="Adicionar produto no carrinho">
+                        <span class="fa fa-shopping-cart"></span>
+                    </button>
+                </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

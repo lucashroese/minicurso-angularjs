@@ -1,0 +1,73 @@
+<html ng-app="App">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja Virtual</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="node_modules/jasny-bootstrap/dist/css/jasny-bootstrap.min.css">
+    <style>
+        .no-js #loader {
+            display: none;
+        }
+        
+        .js #loader {
+            display: block;
+            position: absolute;
+            left: 100px;
+            top: 0;
+        }
+        
+        .se-pre-con {
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            background: url(assets/img/preloader01.gif) center no-repeat #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div ng-view></div>
+    <hr>
+    <div class="se-pre-con"></div>
+    <footer class="footer text-center">
+        &copy; 2016 - Desenvolvido por <a href="">Jesiel Padilha</a>. Todos os direitos reservados.
+    </footer>
+</body>
+<!--Importações Angular-->
+<script src="node_modules/angular/angular.js"></script>
+<script src="assets/app.js"></script>
+<script src="node_modules/angular-route/angular-route.min.js"></script>
+<script src="node_modules/angular-local-storage/dist/angular-local-storage.min.js"></script>
+<!--Controllers-->
+<script src="controller/HomeCtrl.js"></script>
+<script src="controller/ProdutoCtrl.js"></script>
+<script src="controller/VendaCtrl.js"></script>
+<script src="controller/UsuarioCtrl.js"></script>
+<!--Outras Importações-->
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="node_modules/jasny-bootstrap/dist/js/jasny-bootstrap.min.js"></script>
+<script src="assets/js/jquery.mask.min.js"></script>
+<script src="assets/js/jquery.crypt.js"></script>
+<script src="assets/js/angular-locale_pt-br.js"></script>
+<script>
+    $("#Cpf").mask("999.999.999-99");
+    var GeraHash = function(text) {
+        return $().crypt({ method: "sha1", source: text });
+    };
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    })
+    //Preloader geral
+	$(window).load(function() {
+		$(".se-pre-con").fadeOut("slow");
+	});
+</script>
+
+</html>

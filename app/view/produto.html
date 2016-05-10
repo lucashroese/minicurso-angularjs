@@ -1,0 +1,19 @@
+<div ng-include="'view/menu.html'"></div>
+<div class="container" >
+    <div class="col-md-8 text-center">
+        <img src="{{produto.Img}}" alt="foto-produto" width="400">
+    </div>
+    <div class="col-md-4 text-center" style="border: 1px solid; border-color: gray">
+        <h2>{{produto.Nome}}</h2>
+        <h4>{{produto.Descricao}}</h4>
+        <h3>{{produto.Preco | currency:"R$ "}}</h3>
+        <a href="#/carrinho" ng-click="AddProdutoCarrinho(produto)" class="btn btn-primary">
+            Comprar
+        </a>
+        <button ng-click="AddProdutoCarrinho(produto)" class="btn btn-success" title="Adicionar produto no carrinho">
+            <span class="fa fa-shopping-cart"></span> Add
+        </button>
+        <br />
+        <br />
+    </div>
+</div>

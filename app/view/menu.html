@@ -1,0 +1,63 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+            aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#/home">
+                <span class="fa fa-shopping-cart"></span> Loja-Virtual
+            </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#carrinho">
+                        <span class="fa fa-shopping-cart"></span>
+                        <span class="label label-danger">{{qtdProdutoCarrinho}}</span>
+                    </a>
+                </li>
+                <li class="dropdown">
+                    <a href="" data-toggle="modal" data-target="#modalLogin">
+                        <span class="fa fa-sign-in"></span> Login 
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title text-center">Login</h4>
+            </div>
+            <form ng-submit="Login(usuario)" class="form-horizontal">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="label-control col-md-1">CPF</label>
+                        <div class="col-md-10">
+                            <input type="text" ng-model="usuario.Cpf" id="Cpf" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="label-control col-md-1">Senha</label>
+                        <div class="col-md-10">
+                            <input type="password" ng-model="usuario.Senha" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                    <button type="submit" class="btn btn-primary" ng-disabled="!usuario.Cpf && !usuario.Senha">Entrar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

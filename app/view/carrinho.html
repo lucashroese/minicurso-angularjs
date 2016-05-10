@@ -1,0 +1,49 @@
+<div ng-include="'view/menu.html'"></div>
+<h2 class="text-center"> <span class="fa fa-shopping-cart"></span> Seu carrinho</h2>
+<hr/>
+<div class="container">
+    <div class="alert alert-info text-center" ng-show="carrinho == undefined || carrinho.length == 0">
+        <span class="fa fa-shopping-cart"></span> Carrinho vazio!
+    </div>
+    <div ng-hide="carrinho.length == 0">
+        <table class="table">
+            <tr class="active">
+                <th>Foto</th>
+                <th>Nome</th>
+                <th>Descricao</th>
+                <th>Preço</th>
+                <th>Qtd</th>
+                <th style="width: 160px" class="text-center">
+                    <span class="fa fa-gear"></span> Gerenciamento
+                </th>
+            </tr>
+            <tr ng-repeat="item in carrinho">
+                <td>
+                    <img src="{{item.Produto.Img}}" alt="foto-produto" width="50">
+                </td>
+                <td>{{item.Produto.Nome}}</td>
+                <td>{{item.Produto.Descricao}}</td>
+                <td>{{item.Produto.Preco | currency:"R$ "}}</td>
+                <td>
+                    {{item.Qtd}} 
+                </td>
+                <td class="text-center">
+                    <a href="" ng-click="RemoverItemCarrinho(item.Produto)" class="btn btn-danger btn-sm" title="Remover produto do carrinho ">
+                        <span class="fa fa-trash-o"></span>
+                    </a>
+                    <a href="" ng-click="AlmentarQtdProduto(item)" class="btn btn-primary btn-sm" title="Almentar quantidade">
+                        <span class="fa fa-plus"></span>
+                    </a>
+                    <a href="" ng-click="DiminuirQtdProduto(item)" class="btn btn-info btn-sm" title="Diminuir quantidade">
+                        <span class="fa fa-minus"></span>
+                    </a>
+                </td>
+            </tr>
+        </table>
+        <hr/>
+        <h2>Total: {{total | currency:"R$ "}}</h2>
+        <br/>
+        <button ng-disabled="carrinho.length == 0" class="btn btn-primary" ng-click="FinalizarCompra()"> Finalizar compra</button>
+        <button ng-disabled="carrinho.length == 0" class="btn btn-default" ng-click="LimparCarrinho()">Limpar carrinho</button>
+    </div>
+</div>

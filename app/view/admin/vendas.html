@@ -1,0 +1,18 @@
+<div ng-include="'view/admin/menu-admin.html'"></div>
+<h2 class="text-center">Vendas</h2>
+<hr/>
+<div class="container">
+    <table class="table table-bordered">
+        <tr class="active">
+            <th>Id</th>
+            <th>Data</th>
+            <th>Total</th>
+        </tr>
+        <tr ng-repeat="venda in vendas">
+
+            <td>{{venda.Id}}</td>
+            <td>{{venda.Data}}</td>
+            <td>{{venda.Total}}</td>
+        </tr>
+    </table>
+</div>
